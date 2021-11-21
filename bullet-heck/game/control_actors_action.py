@@ -60,10 +60,10 @@ class Control_Actors_Action(Action):
         """
         actor.set_velocity(Point(0,0))
         hit_edge = self.check_edge_collisions(actor)
-        if self._input_service.is_left_pressed():
+        if self._input_service.is_a_key_down():
             if not hit_edge[0]:
                 actor.set_velocity(Point(-constants.P2_SHIP_SPEED,0))
-        elif self._input_service.is_right_pressed():
+        elif self._input_service.is_d_key_down():
             if not hit_edge[1]:
                 actor.set_velocity(Point(constants.P2_SHIP_SPEED,0))
 

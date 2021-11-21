@@ -57,7 +57,7 @@ def main():
 
 
     draw_actors_action = DrawActorsAction(output_service)
-
+    
 
 
     # TODO: Create additional actions here and add them to the script
@@ -67,7 +67,6 @@ def main():
                         Handle_Off_Screen_Action(),
                         Handle_Collisions_Action(physics_service,audio_service)]
     script["output"] = [draw_actors_action]
-
 
 
     # Start the game

@@ -58,6 +58,12 @@ class InputService:
     def is_down_pressed(self):
         return raylibpy.is_key_down(raylibpy.KEY_DOWN)
 
+    def is_a_key_down(self):
+        return raylibpy.is_key_down(raylibpy.KEY_A)
+
+    def is_d_key_down(self):
+        return raylibpy.is_key_down(raylibpy.KEY_D)
+
     def window_should_close(self):
         return raylibpy.window_should_close()
 
