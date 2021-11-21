@@ -23,5 +23,3 @@ class Handle_Off_Screen_Action(Action):
                         dx = (actor.get_velocity_x()) * -1
                         dy = actor.get_velocity_y()
                         actor.set_velocity(Point(dx,dy))
-                if actor.get_position_y() > constants.MAX_Y:
-                    cast["ball"].remove(actor)

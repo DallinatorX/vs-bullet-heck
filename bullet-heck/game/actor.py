@@ -30,7 +30,6 @@ class Actor:
         self._height = 0
         self._image = ""
         self._bounce_on_edge = False
-        self._player_controlled = False
         self._type = ""
 
     def get_width(self):
@@ -150,11 +149,6 @@ class Actor:
     def get_bounce_on_edge(self):
         return self._bounce_on_edge
 
-    def is_player_controlled(self):
-        return self._player_controlled
-
-    def set_player_controlled(self, controlled):
-        self._player_controlled = controlled
 
     def set_type(self, kind):
         self._type = kind

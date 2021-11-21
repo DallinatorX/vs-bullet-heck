@@ -1,5 +1,5 @@
 import os
-os.environ['RAYLIB_BIN_PATH'] = "./lib/raylib"
+os.environ['RAYLIB_BIN_PATH'] = "./bullet-heck/lib/raylib"
 
 import random
 from game import constants
@@ -16,6 +16,8 @@ from game.handle_off_screen_action import Handle_Off_Screen_Action
 from game.control_actors_action import Control_Actors_Action
 from game.handle_collisions_action import Handle_Collisions_Action
 from game.pause_menu_actor import Pause_Menu_Actor
+from game.player_one_ship import Player_One_Ship
+from game.player_two_ship import Player_Two_Ship
 
 
 
@@ -25,31 +27,24 @@ def main():
     # create the cast {key: tag, value: list}
     cast = {}
 
+    # bricks = [] 
 
+    # cast["bricks"] = bricks
 
+    # ball = []
 
-    bricks = [] 
-    for n in range(constants.BRICK_COUNT_COLLUMS):
-        for m in range(constants.BRICK_COUNT_ROWS):
-            brick = Brick()
-            brick.set_position(Point(((n+1) * (constants.MAX_X / 
-                              (constants.BRICK_COUNT_COLLUMS + 1))
-                              )-constants.BALL_WIDTH, m * ((constants.MAX_Y / 1.5) 
-                              / (constants.BRICK_COUNT_ROWS + 1)) + 
-                              constants.BALL_WIDTH))
-            bricks.append(brick) 
-    cast["bricks"] = bricks
+    # cast["ball"] = [ball]
+    # paddle = []
 
-    # TODO: Create bricks here and add them to the list
-    ball = Ball()
-
-    cast["ball"] = [ball]
-    # TODO: Create a ball here and add it to the list
-    paddle = Paddle()
-    cast["paddle"] = [paddle]
-    # TODO: Create a paddle here and add it to the list
+    # cast["paddle"] = [paddle]
     pause_menu = Pause_Menu_Actor()
     cast["pause_menu"] = [pause_menu]
+
+    p1_ship = Player_One_Ship()
+    cast["p1_ship"] = [p1_ship]
+
+    p2_ship = Player_Two_Ship()
+    cast["p2_ship"] = [p2_ship]
 
 
     # Create the script {key: tag, value: list}
@@ -76,9 +71,9 @@ def main():
 
 
     # Start the game
-    output_service.open_window("Batter");
+    output_service.open_window("Bullet \"Nether\" (BYUI Safe)");
     audio_service.start_audio()
-    audio_service.play_sound(constants.SOUND_START)
+    #audio_service.play_sound(constants.SOUND_START)
     
     director = Director(cast, script)
     director.start_game()
