@@ -16,7 +16,7 @@ class Handle_Collisions_Action(Action):
         It takes the cast and makes the ball bounce off of bricks and paddles. 
         It rmoves the brick from the list if it hit a brick
         """
-        if len(cast["p1_ship"]) == 0:
+        if len(cast["p1_ship"]) == 0 or len(cast["p2_ship"]) == 0:
             return
         p1 = cast["p1_ship"][0] 
         p2 = cast["p2_ship"][0]
@@ -35,5 +35,6 @@ class Handle_Collisions_Action(Action):
             if self._physics_service.is_collision(bullet, p2):
                 if bullet.return_player() == 2:
                     cast["bullets"].remove(bullet)
-                    print("HELP")
-
+                    p2.take_dammage(1)
+                    if p2.get_hp() == 0:
+                        cast["p2_ship"].remove(p2)

@@ -23,3 +23,13 @@ class Handle_Off_Screen_Action(Action):
                         dx = (actor.get_velocity_x()) * -1
                         dy = actor.get_velocity_y()
                         actor.set_velocity(Point(dx,dy))
+
+
+        for group in cast.values():
+            for actor in group:
+                if (actor.get_position_x() < -100 or
+                    actor.get_position_x() > constants.MAX_X + 100 or
+                    actor.get_position_y() < -100 or
+                    actor.get_position_y() > constants.MAX_Y + 100):
+                    
+                    cast["bullets"].remove(actor)
