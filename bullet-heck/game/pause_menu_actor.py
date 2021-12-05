@@ -10,7 +10,7 @@ class Pause_Menu_Actor(Actor):
     def __init__(self):
         super().__init__()
         self.set_text("PAUSED")
-        self.set_position(Point(-50,-50))
+        self.set_position(Point(0,-50))
         self._paused = False
 
     def is_paused(self):
@@ -26,7 +26,7 @@ class Pause_Menu_Actor(Actor):
             self.set_position(Point(constants.MAX_X / 2 - 40, 
                                     constants.MAX_Y / 2))
         else:
-            self.set_position(Point(-50,-50))
+            self.set_position(Point(0,-50))
     
     def invert_pause(self):
         self.set_pause(not self._paused)

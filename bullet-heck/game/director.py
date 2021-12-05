@@ -39,6 +39,15 @@ class Director:
             if raylibpy.window_should_close():
                 self._keep_playing = False
 
+            if len(self._cast["p2_ship"]) == 0 :
+                self._keep_playing = False
+                print("Player 1 Wins")
+
+            if len(self._cast["p1_ship"]) == 0 :
+                self._keep_playing = False
+                print("Player 2 Wins")
+
+
 
     def _cue_action(self, tag):
         """Executes the actions with the given tag.

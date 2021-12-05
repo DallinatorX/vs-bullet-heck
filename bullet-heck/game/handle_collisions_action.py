@@ -12,39 +12,29 @@ class Handle_Collisions_Action(Action):
 
 
     def execute(self, cast):
-        pass
-        # """
-        # It takes the cast and makes the ball bounce off of bricks and paddles. 
-        # It rmoves the brick from the list if it hit a brick
-        # """
-        # if len(cast["ball"]) == 0:
-        #     return
-        # ball = cast["ball"][0] 
-        # paddle = cast["paddle"][0]
-        # bricks = cast["bricks"]
-        # if self._physics_service.is_collision(paddle, ball):
-        #     ball_on_paddle = ball.get_position_x() - paddle.get_position_x()
-        #     if ball_on_paddle == (paddle.get_width() / 2) - (ball.get_width() / 2):
-        #         dx = 0
-        #         dy = -constants.BALL_DY
-        #     elif ball_on_paddle < (paddle.get_width() / 2):
-        #         dx = -constants.BALL_DX * (((paddle.get_width() / 2) - ball_on_paddle) / (paddle.get_width() / 2))
-        #         dy = -constants.BALL_DY
-        #     elif ball_on_paddle > (paddle.get_width() / 2):
-        #         dx = -constants.BALL_DX * (((paddle.get_width() / 2) - ball_on_paddle) / (paddle.get_width() / 2))
-        #         dy = -constants.BALL_DY
+        """
+        It takes the cast and makes the ball bounce off of bricks and paddles. 
+        It rmoves the brick from the list if it hit a brick
+        """
+        if len(cast["p1_ship"]) == 0 or len(cast["p2_ship"]) == 0:
+            return
+        p1 = cast["p1_ship"][0] 
+        p2 = cast["p2_ship"][0]
+        bullets = cast["bullets"]
+        if self._physics_service.is_collision(p1, p2):
+            print("HELP!!!")
+            cast["p1_ship"].remove(p1)
 
 
-
-
-
-        #     ball.set_velocity(Point(dx,dy))
-        #     self._audio_service.play_sound(constants.SOUND_BOUNCE)
-        # for brick in bricks:
-        #     if self._physics_service.is_collision(brick, ball):
-        #         dx = ball.get_velocity_x()
-        #         dy = (ball.get_velocity_y()) * -1
-        #         ball.set_velocity(Point(dx,dy))
-        #         self._audio_service.play_sound(constants.SOUND_BOUNCE)
-        #         cast["bricks"].remove(brick)
-
+        for bullet in bullets:
+            if self._physics_service.is_collision(bullet, p1):
+                if bullet.return_player() == 1:
+                    cast["bullets"].remove(bullet)
+                    cast["p1_ship"].remove(p1)
+            
+            if self._physics_service.is_collision(bullet, p2):
+                if bullet.return_player() == 2:
+                    cast["bullets"].remove(bullet)
+                    p2.take_dammage(1)
+                    if p2.get_hp() == 0:
+                        cast["p2_ship"].remove(p2)
