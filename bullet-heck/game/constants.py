@@ -11,7 +11,7 @@ DEFAULT_TEXT_OFFSET = 4
 
 P1_SHIP_SPEED = 8
 P2_SHIP_SPEED = 4
-
+BULLET_SPEED = 1
 #SOUND_START = os.path.join(os.getcwd(), "./batter/assets/start.wav")
 
 

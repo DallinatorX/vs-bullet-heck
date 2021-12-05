@@ -18,6 +18,8 @@ from game.handle_collisions_action import Handle_Collisions_Action
 from game.pause_menu_actor import Pause_Menu_Actor
 from game.player_one_ship import Player_One_Ship
 from game.player_two_ship import Player_Two_Ship
+from game.bullet import Bullet
+from game.fire_bullet import Fire_Bullet
 
 
 
@@ -46,6 +48,10 @@ def main():
     p2_ship = Player_Two_Ship()
     cast["p2_ship"] = [p2_ship]
 
+    bullet = Bullet()
+    bullet.set_player(2)
+    cast["bullets"] = [bullet]
+
 
     # Create the script {key: tag, value: list}
     script = {}
@@ -62,7 +68,8 @@ def main():
 
     # TODO: Create additional actions here and add them to the script
 
-    script["input"] = [Control_Actors_Action()]
+    script["input"] = [Control_Actors_Action(),
+                        Fire_Bullet(input_service)]
     script["update"] = [Move_Actors_Action(),
                         Handle_Off_Screen_Action(),
                         Handle_Collisions_Action(physics_service,audio_service)]
