@@ -1,5 +1,5 @@
-from game.action import Action
-from game.point import Point
+from game.actions.action import Action
+from game.services.point import Point
 from game import constants
 
 class Handle_Off_Screen_Action(Action):

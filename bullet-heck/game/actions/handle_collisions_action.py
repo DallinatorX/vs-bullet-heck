@@ -1,5 +1,5 @@
-from game.action import Action
-from game.point import Point
+from game.actions.action import Action
+from game.services.point import Point
 from game import constants
 
 class Handle_Collisions_Action(Action):
@@ -22,7 +22,6 @@ class Handle_Collisions_Action(Action):
         p2 = cast["p2_ship"][0]
         bullets = cast["bullets"]
         if self._physics_service.is_collision(p1, p2):
-            print("HELP!!!")
             cast["p1_ship"].remove(p1)
 
 

@@ -1,4 +1,4 @@
-from game.action import Action
+from game.actions.action import Action
 
 class Update_Hp(Action):
     def execute(self, cast):

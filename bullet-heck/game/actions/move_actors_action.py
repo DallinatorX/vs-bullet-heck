@@ -1,5 +1,5 @@
-from game.action import Action
-from game.point import Point
+from game.actions.action import Action
+from game.services.point import Point
 
 class Move_Actors_Action(Action):
     """

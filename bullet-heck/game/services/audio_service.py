@@ -1,5 +1,5 @@
 import sys
-from game.point import Point
+from game.services.point import Point
 import raylibpy
 
 class AudioService:

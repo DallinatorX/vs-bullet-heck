@@ -1,4 +1,4 @@
-from game.action import Action
+from game.actions.action import Action
 
 class Fast_Fire(Action):
     def __init__(self):

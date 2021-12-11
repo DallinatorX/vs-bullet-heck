@@ -4,24 +4,28 @@ os.environ['RAYLIB_BIN_PATH'] = "./bullet-heck/lib/raylib"
 import random
 from game import constants
 from game.director import Director
-from game.actor import Actor
-from game.point import Point
-from game.draw_actors_action import DrawActorsAction
-from game.input_service import InputService
-from game.output_service import OutputService
-from game.physics_service import PhysicsService
-from game.audio_service import AudioService
-from game.move_actors_action import Move_Actors_Action
-from game.handle_off_screen_action import Handle_Off_Screen_Action
-from game.control_actors_action import Control_Actors_Action
-from game.handle_collisions_action import Handle_Collisions_Action
-from game.pause_menu_actor import Pause_Menu_Actor
-from game.player_one_ship import Player_One_Ship
-from game.player_two_ship import Player_Two_Ship
-from game.bullet import Bullet
-from game.fire_bullet import Fire_Bullet
-from game.hp import Hp
-from game.update_hp import Update_Hp
+from game.actors.actor import Actor
+from game.services.point import Point
+from game.actions.draw_actors_action import DrawActorsAction
+from game.services.input_service import InputService
+from game.services.output_service import OutputService
+from game.services.physics_service import PhysicsService
+from game.services.audio_service import AudioService
+from game.actions.move_actors_action import Move_Actors_Action
+from game.actions.handle_off_screen_action import Handle_Off_Screen_Action
+from game.actions.control_actors_action import Control_Actors_Action
+from game.actions.handle_collisions_action import Handle_Collisions_Action
+from game.actors.pause_menu_actor import Pause_Menu_Actor
+from game.actors.player_one_ship import Player_One_Ship
+from game.actors.player_two_ship import Player_Two_Ship
+from game.actors.bullet import Bullet
+from game.actions.fire_bullet import Fire_Bullet
+from game.actors.hp import Hp
+from game.actions.update_hp import Update_Hp
+from game.actions.bullet_patterns.angle_fire_right_pattern import Angle_Fire_Right_Pattern
+from game.actions.bullet_patterns.angle_fire_left_pattern import Angle_Fire_Left_Pattern
+from game.actions.change_bullet import Change_Bullet
+from game.actions.bullet_patterns.circle_fire_pattern import Circle_Fire
 
 
 
@@ -72,11 +76,17 @@ def main():
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = [Control_Actors_Action(),
-                        Fire_Bullet(input_service)]
+                        Fire_Bullet(input_service),
+                        Angle_Fire_Right_Pattern (input_service),
+                        Angle_Fire_Left_Pattern (input_service),
+                        Change_Bullet(input_service),
+                        Circle_Fire(input_service) ]
+
     script["update"] = [Move_Actors_Action(),
                         Handle_Off_Screen_Action(),
                         Handle_Collisions_Action(physics_service,audio_service),
                         Update_Hp()]
+
     script["output"] = [draw_actors_action]
 
 

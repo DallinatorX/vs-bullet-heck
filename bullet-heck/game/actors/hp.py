@@ -1,4 +1,4 @@
-from game.actor import Actor
+from game.actors.actor import Actor
 from game import constants
 
 class Hp(Actor):

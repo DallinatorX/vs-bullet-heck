@@ -1,6 +1,6 @@
-from game.action import Action
-from game.input_service import InputService
-from game.point import Point
+from game.actions.action import Action
+from game.services.input_service import InputService
+from game.services.point import Point
 from game import constants
 
 class Control_Actors_Action(Action):

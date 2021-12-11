@@ -1,5 +1,5 @@
 import sys
-from game.point import Point
+from game.services.point import Point
 import raylibpy
 
 class InputService:
@@ -85,3 +85,28 @@ class InputService:
             key_string = chr(key_int)
         
         return key_string
+
+    def get_number_key(self):
+        number = -1
+        if raylibpy.is_key_down(raylibpy.KEY_ONE):
+            number = 1
+        if raylibpy.is_key_down(raylibpy.KEY_TWO):
+            number = 2
+        if raylibpy.is_key_down(raylibpy.KEY_THREE):
+            number = 3
+        if raylibpy.is_key_down(raylibpy.KEY_FOUR):
+            number = 4
+        if raylibpy.is_key_down(raylibpy.KEY_FIVE):
+            number = 5
+        if raylibpy.is_key_down(raylibpy.KEY_SIX):
+            number = 6
+        if raylibpy.is_key_down(raylibpy.KEY_SEVEN):
+            number = 7
+        if raylibpy.is_key_down(raylibpy.KEY_EIGHT):
+            number = 8
+        if raylibpy.is_key_down(raylibpy.KEY_NINE):
+            number = 9
+        if raylibpy.is_key_down(raylibpy.KEY_ZERO):
+            number = 0
+
+        return number

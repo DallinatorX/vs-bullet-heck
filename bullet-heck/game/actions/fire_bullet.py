@@ -1,12 +1,11 @@
-from game.action import Action
-from game.point import Point
+from game.actions.action import Action
+from game.services.point import Point
 from game import constants
-from game.bullet import Bullet
+from game.actors.bullet import Bullet
 
 class Fire_Bullet(Action):
     def __init__(self,input_servce):
         super().__init__()
-        #self._bullet = Bullet()
         self._input_service = input_servce
 
     def execute(self, cast):
@@ -33,11 +32,11 @@ class Fire_Bullet(Action):
             bullets.append(bullet)
             p1.reset_frames_past_fire()
 
-        if (p2.get_frames_past_fire() > constants.P2_BULLET_COOL_DOWN):
+        if (p2.get_frames_past_fire(0) > constants.P2_MAIN_FIRE_COOL_DOWN):
             bullet = Bullet()
             bullet.set_player(1)
             bullet.set_velocity(Point(0,constants.P2_BULLET_SPEED))
             bullet.set_position(Point(p2.get_position_x()+(p2.get_width()/2),
                                       (p2.get_position_y()) + (p2.get_height())))
             bullets.append(bullet)
-            p2.reset_frames_past_fire()
+            p2.reset_frames_past_fire(0)
