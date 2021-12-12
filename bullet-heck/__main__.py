@@ -19,33 +19,28 @@ from game.actors.pause_menu_actor import Pause_Menu_Actor
 from game.actors.player_one_ship import Player_One_Ship
 from game.actors.player_two_ship import Player_Two_Ship
 from game.actors.bullet import Bullet
-from game.actions.fire_bullet import Fire_Bullet
+from game.actions.bullet_patterns.fire_bullet import Fire_Bullet
 from game.actors.hp import Hp
 from game.actions.update_hp import Update_Hp
 from game.actions.bullet_patterns.angle_fire_right_pattern import Angle_Fire_Right_Pattern
 from game.actions.bullet_patterns.angle_fire_left_pattern import Angle_Fire_Left_Pattern
 from game.actions.change_bullet import Change_Bullet
 from game.actions.bullet_patterns.circle_fire_pattern import Circle_Fire
+from game.actors.welcome_screen import Welcome_Screen
+from game.actors.gameover_screen import Gameover_Screen
 
 
 
 
 
 def main():
-    # create the cast {key: tag, value: list}
+    """
+    It's main, you know the jist, it calles needed code and sets up and starts the game
+    """
+    #Creates the cast and adds the members
     cast = {}
 
-    # bricks = [] 
-
-    # cast["bricks"] = bricks
-
-    # ball = []
-
-    # cast["ball"] = [ball]
-    # paddle = []
-
-    # cast["paddle"] = [paddle]
-    pause_menu = Pause_Menu_Actor()
+    pause_menu = Pause_Menu_Actor(AudioService)
     cast["pause_menu"] = [pause_menu]
 
     p1_ship = Player_One_Ship()
@@ -58,6 +53,12 @@ def main():
 
     helth = Hp()
     cast["hp"] = [helth]
+
+    welcome_screen = Welcome_Screen()
+    cast["welcome_screen"] = [welcome_screen]
+
+    gameover_screen = Gameover_Screen()
+    cast["gameover_screen"] = [gameover_screen]
 
 
     # Create the script {key: tag, value: list}
@@ -73,7 +74,7 @@ def main():
     
 
 
-    # TODO: Create additional actions here and add them to the script
+    #Adds actions to the script
 
     script["input"] = [Control_Actors_Action(),
                         Fire_Bullet(input_service),
@@ -93,7 +94,7 @@ def main():
     # Start the game
     output_service.open_window("Bullet \"Nether\" (BYUI Safe)");
     audio_service.start_audio()
-    #audio_service.play_sound(constants.SOUND_START)
+    audio_service.play_sound(constants.MAIN_MUSIC)
     
     director = Director(cast, script)
     director.start_game()

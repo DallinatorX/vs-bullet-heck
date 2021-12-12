@@ -30,6 +30,13 @@ class AudioService:
         sound = self._sounds[filename]
         raylibpy.play_sound(sound)
 
+    def stop_sound(self,filename):
+        """
+        Stops a sound with a given name
+        """
+        sound = self._sounds[filename]
+        raylibpy.stop_sound(sound)
+
     def start_audio(self):
         """
         Initializes the audio device so that sounds can be played.
@@ -41,3 +48,9 @@ class AudioService:
         Closes the audio device at the end of the program.
         """
         raylibpy.close_audio_device()
+
+    def change_volume(self,volume):
+        """
+        Changes the Volume given a number 0 - 100
+        """
+        raylibpy.set_master_volume(volume/100)

@@ -144,14 +144,27 @@ class Actor:
         return self._image != ""
 
     def set_bounce_on_edge(self,bounce):
+        """
+        sets if the object should bounce on the edge
+        Will be used in a later relase as a villien attack 
+        type
+        """
         self._bounce_on_edge = bounce
 
     def get_bounce_on_edge(self):
+        """
+        Returns if the object should bounce on the edge
+        Will be used in a later relase as a villien attack 
+        type
+        """
         return self._bounce_on_edge
 
 
     def set_type(self, kind):
+        """Sets what type of Object it is"""
         self._type = kind
 
     def get_type(self):
+        """Returns what type of Object it is"""
+
         return self._type

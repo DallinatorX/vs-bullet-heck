@@ -4,8 +4,7 @@ class PhysicsService:
     """
     Used for actions relating to Physics, such as determining collisions.
     """
-    def __init__(self):
-        pass
+
 
     def is_collision(self, first, second):
         """

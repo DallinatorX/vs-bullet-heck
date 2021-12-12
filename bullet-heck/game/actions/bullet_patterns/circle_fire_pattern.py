@@ -7,10 +7,16 @@ import math
 
 
 class Circle_Fire(Action):
+    """
+    This allows Player two to fire in a 
+    Circle like pattern.
+    """
     def __init__(self,input_servce):
         self._input_service = input_servce
 
     def execute(self, cast):
+        if len(cast["p2_ship"]) == 0:
+            return
         p2 = cast["p2_ship"][0]
         bullets = cast["bullets"]
         fire_type = 3
@@ -23,7 +29,7 @@ class Circle_Fire(Action):
             i = 0
             number_of_bullets = constants.P2_CIRCLE_FIRE_BULLET_COUNT
             while i <= number_of_bullets:
-                # -pi to pi
+                # Calculateing the angle to fire each bullet
                 x_angle = -math.cos(math.radians(180 + (i*(180 / number_of_bullets))))
                 y_angle = -math.sin(math.radians(180 + (i*(180 / number_of_bullets))))
                 bullet = self.fire_bullet(Point(x_angle * constants.P2_BULLET_SPEED,y_angle * constants.P2_BULLET_SPEED),p2)
@@ -34,6 +40,12 @@ class Circle_Fire(Action):
             p2.reset_frames_past_fire(fire_type)
 
     def fire_bullet(self,velocity,p2):
+        """
+        Sets the bullets Veloicty and which player
+        it can do dammage to.
+        It is given the needed speed and the currenet
+        player so that it knows where to place the bullet
+        """
         bullet = Bullet()
         bullet.set_player(1)
 

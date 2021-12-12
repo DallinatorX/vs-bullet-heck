@@ -1,5 +1,4 @@
 import os
-import random
 
 MAX_X = 800
 MAX_Y = 600
@@ -26,7 +25,14 @@ P2_LEFT_ANGLE_FIRE_BULLET_COUNT = 6
 
 P2_BULLET_SPEED = 5
 P2_HP = 5
-#SOUND_START = os.path.join(os.getcwd(), "./batter/assets/start.wav")
+
+P1_SHIP_IMAGE = os.path.join(os.getcwd(), "./bullet-heck/assets/rocket3.png")
+P2_SHIP_IMAGE = os.path.join(os.getcwd(), "./bullet-heck/assets/UFO2.png")
+
+
+PAUSE_MENU_MUSIC = os.path.join(os.getcwd(), "./bullet-heck/assets/Pause-Menu-Song.wav")
+MAIN_MUSIC = os.path.join(os.getcwd(), "./bullet-heck/assets/Bleeping_Demo.wav")
+
 
 
 

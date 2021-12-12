@@ -70,12 +70,16 @@ class InputService:
     def is_shift_down(self):
         return raylibpy.is_key_down(raylibpy.KEY_RIGHT_SHIFT)
 
+    def is_enter_down(self):
+        return raylibpy.is_key_down(raylibpy.KEY_ENTER)
+
+
     def window_should_close(self):
         return raylibpy.window_should_close()
 
     def get_key_press(self):
         """
-        we probably need to filter the keys to be only regular letters
+        Gets any key pressed
         """
         key_int = raylibpy.get_key_pressed()
 
@@ -87,6 +91,9 @@ class InputService:
         return key_string
 
     def get_number_key(self):
+        """
+        Gets a number key from the top row
+        """
         number = -1
         if raylibpy.is_key_down(raylibpy.KEY_ONE):
             number = 1

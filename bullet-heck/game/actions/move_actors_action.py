@@ -21,8 +21,8 @@ class Move_Actors_Action(Action):
                     y = actor._position.get_y()
                     dx = actor._velocity.get_x()
                     dy = actor._velocity.get_y()
-                    x = (x + dx) #% constants.MAX_X
-                    y = (y + dy) #% constants.MAX_Y
+                    x = (x + dx)
+                    y = (y + dy)
 
                     position = Point(x, y)
                     actor.set_position(position)

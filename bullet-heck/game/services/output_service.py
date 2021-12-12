@@ -40,7 +40,7 @@ class OutputService:
         """
         Draws at rectangular box with the provided specifications.
         """
-        raylibpy.draw_rectangle(x, y, width, height, raylibpy.BLUE)
+        raylibpy.draw_rectangle(x, y, width, height, raylibpy.WHITE)
 
     def draw_text(self, x, y, text, is_dark_text):
         """
@@ -81,7 +81,6 @@ class OutputService:
         if actor.has_image():
             image = actor.get_image()
             self.draw_image(x, y, image)
-            #self.draw_image(x - width / 2, y - height / 2, image)
         elif actor.has_text():
             text = actor.get_text()
             self.draw_text(x, y, text, False)

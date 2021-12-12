@@ -1,3 +1,3 @@
 """
-The game package contains specific classes for playing RFK.
+This has all of the servers that the game needs to run
 """

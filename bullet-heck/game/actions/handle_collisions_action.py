@@ -13,8 +13,9 @@ class Handle_Collisions_Action(Action):
 
     def execute(self, cast):
         """
-        It takes the cast and makes the ball bounce off of bricks and paddles. 
-        It rmoves the brick from the list if it hit a brick
+        Handles all bullets and checks if they have hit a player
+        if they hit player 2 they remove hp 
+        if they hit player 1 they remove the player one actor
         """
         if len(cast["p1_ship"]) == 0 or len(cast["p2_ship"]) == 0:
             return
