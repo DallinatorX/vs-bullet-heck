@@ -1,0 +1,46 @@
+I am going to do a Bullet Hell game.
+The twist on this over others is that
+it is going to be two player. One 
+player will controll the main ship,
+the other will be the "bad guy".
+Each will get powerups to use.
+
+Must Have:
+The game must have both players 
+be able to controll and to shoot
+at each other. Player one will have 
+a set number of lives while player 2
+will have an amount of HP.
+
+Nice to have:
+A few things that would be nice to 
+have is power ups, a pause menu,
+controler support, a consle, and
+an options menu
+
+
+Classes:
+	Actor
+		player one ship
+		player two ship
+		bullet
+		pause menu
+	Action
+		Fire bullet
+		detect collision
+		controll actors
+		draw actors
+		move actors
+		handle off screen (used for some
+			power up if bullets reflect)
+		power ups
+			star fire
+			fast fire
+			cross pattern fire
+			clone ship
+	Other
+		audio service
+		physics service
+		input service
+		output service
+		options menu
